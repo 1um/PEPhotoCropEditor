@@ -12,6 +12,8 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   
   s.source_files          = "Lib/*"
-  s.resources             = "Resources/PEPhotoCropEditor.bundle"
+  s.ios.resource_bundle = {
+    'PEPhotoCropEditor' => ['Resources/PEPhotoCropEditor.bundle/*.png']
+  }
   s.framework             = "QuartzCore", "AVFoundation"
 end

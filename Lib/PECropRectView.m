@@ -34,12 +34,15 @@
         self.backgroundColor = [UIColor clearColor];
         self.contentMode = UIViewContentModeRedraw;
         
-        self.showsGridMajor = YES;
+        self.showsGridMajor = NO;
         self.showsGridMinor = NO;
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, -2.0f, -2.0f)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        imageView.image = [[UIImage imageNamed:@"PEPhotoCropEditor.bundle/PEPhotoCropEditorBorder"] resizableImageWithCapInsets:UIEdgeInsetsMake(23.0f, 23.0f, 23.0f, 23.0f)];
+        NSBundle *podBundle = [NSBundle bundleForClass:PECropRectView.self];
+        NSURL *url = [podBundle URLForResource:@"PEPhotoCropEditor" withExtension:@"bundle"];
+        UIImage *borders = [UIImage imageNamed:@"PEPhotoCropEditorBorder" inBundle:[NSBundle bundleWithURL:url] compatibleWithTraitCollection:nil];
+        imageView.image = [borders resizableImageWithCapInsets:UIEdgeInsetsMake(23.0f, 23.0f, 23.0f, 23.0f)];
         [self addSubview:imageView];
         
         self.topLeftCornerView = [[PEResizeControl alloc] init];
