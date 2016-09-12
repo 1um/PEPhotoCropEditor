@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   
   s.source_files          = "Lib/*"
   s.resource_bundle = {
-    'PEPhotoCropEditor' => ['Sources/PEPhotoCropEditor.bundle/*.png']
+    'PEPhotoCropEditor' => ['Resources/PEPhotoCropEditor.bundle/*.png']
   }
   s.framework             = "QuartzCore", "AVFoundation"
 end
